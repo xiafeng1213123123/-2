@@ -1,0 +1,9 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {DOMAINS,QUESTIONS,scoreAnswers,validAnswers} from '../dist/quiz.js';
+import {createCode,verifyCode,HOUR} from '../dist/access.js';
+test('all domains have four distinct items and one reverse item',()=>{assert.equal(new Set(QUESTIONS.map(q=>q.id)).size,24);for(const d of DOMAINS){const items=QUESTIONS.filter(q=>q.d===d.id);assert.equal(items.length,4);assert.equal(items.filter(q=>q.reverse).length,1);}});
+test('positive and reverse answers produce the intended extrema',()=>{const high=scoreAnswers(QUESTIONS.map(q=>q.reverse?1:5));const low=scoreAnswers(QUESTIONS.map(q=>q.reverse?5:1));assert.ok(high.scores.every(s=>s.mean===5));assert.ok(low.scores.every(s=>s.mean===1));assert.equal(high.tied.length,6);assert.equal(low.low,true);});
+test('one behavior profile is distinctly identified without contaminating others',()=>{for(const d of DOMAINS){const result=scoreAnswers(QUESTIONS.map(q=>q.d===d.id?(q.reverse?1:5):3));assert.equal(result.top.id,d.id);assert.deepEqual(result.tied,[d.id]);assert.equal(result.top.mean,5);assert.ok(result.scores.filter(s=>s.id!==d.id).every(s=>s.mean===3));}});
+test('incomplete, out of range and corrupt answers cannot produce a report',()=>{assert.throws(()=>scoreAnswers(Array(24).fill(null)));assert.throws(()=>scoreAnswers(Array(23).fill(3)));assert.throws(()=>scoreAnswers(Array(24).fill(6)));assert.equal(validAnswers(Array(24).fill('3')),false);assert.equal(validAnswers(Array(24).fill(3.5)),false);});
+test('same-hour code is stable, six digits, and rolls over at the next hour',async()=>{const base=Date.UTC(2026,10,14,8);const code=await createCode(base);assert.match(code,/^\d{6}$/);assert.equal(await createCode(base+HOUR-1),code);assert.equal(await verifyCode(code,base+HOUR-1),true);assert.equal(await verifyCode(code,base+HOUR),false);assert.equal(await verifyCode('12345',base),false);});
