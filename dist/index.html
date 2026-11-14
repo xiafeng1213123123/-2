@@ -9,47 +9,21 @@
   <meta name="referrer" content="no-referrer">
   <title>我的优势，藏在哪些小事里？</title>
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
-  <style>
-    [hidden]{display:none!important}body.is-loading{margin:0;background:#fbf5e9;color:#65564d}
-    .loading-screen{position:fixed;inset:0;z-index:200;display:grid;place-items:center;padding:24px;background:#fbf5e9;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif}
-    .loading-card{width:min(100%,300px);text-align:center}.loading-flower{width:54px;height:65px;color:#837264;margin:0 auto 20px;display:block}
-    .loading-title{font-family:WenKai,'STKaiti','KaiTi',serif;font-size:26px;font-weight:400;margin:0 0 12px}.loading-message{font-size:14px;line-height:1.7;margin:0 0 20px;color:#88796c}
-    .loading-progress{display:block;width:100%;height:7px;border:0;border-radius:10px;overflow:hidden;background:#e9dfd0;accent-color:#9eae84}.loading-progress::-webkit-progress-bar{background:#e9dfd0}.loading-progress::-webkit-progress-value{background:#9eae84;border-radius:10px}.loading-progress::-moz-progress-bar{background:#9eae84}
-    .loading-count{display:block;font-size:12px;color:#88796c;margin-top:10px}.loading-retry{margin:18px auto 0;padding:10px 24px;border:1px solid #8f7a60;border-radius:14px;background:#f5d77f;color:#65564d;font:inherit;cursor:pointer}.loading-retry:focus-visible{outline:3px solid #7c9875;outline-offset:4px}
-  </style>
-  <link id="app-styles" rel="stylesheet" href="./style.css" media="print" onload="this.media='all'">
-  <link rel="preload" href="./assets/handwriting.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="./assets/animals.png" as="image">
-  <link rel="modulepreload" href="./app.js">
-  <link rel="modulepreload" href="./quiz.js">
-  <link rel="modulepreload" href="./access.js">
-  <link rel="modulepreload" href="./access-config.js">
-  <link rel="modulepreload" href="./sound.js">
+  <link rel="stylesheet" href="./style.css">
 </head>
-<body class="is-loading">
+<body>
   <svg class="svg-defs" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
     <filter id="paper-noise"><feTurbulence type="fractalNoise" baseFrequency=".72" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
     <symbol id="daisy" viewBox="0 0 70 85"><path d="M35 48q5 17-3 32m2-13Q16 68 17 55q14 0 17 12m1-7q15-2 18-14-13 0-18 14" fill="none" stroke="#9aaa70" stroke-width="4" stroke-linecap="round"/><path d="M35 12c-13-17-26 0-18 10-17-1-19 18-4 22-5 15 12 23 22 12 11 12 28 2 22-12 17-3 14-23-2-22 7-14-9-25-20-10Z" fill="#fffaf0" stroke="currentColor" stroke-width="3.2" stroke-linejoin="round"/><circle cx="35" cy="34" r="8" fill="#f3d27c"/></symbol>
     <symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="spark" viewBox="0 0 28 28"><path d="m14 2 3 9 9 3-9 3-3 9-3-9-9-3 9-3Z" fill="currentColor"/></symbol>
   </defs></svg>
-  <section id="loading" class="loading-screen" aria-labelledby="loading-title" aria-busy="true">
-    <div class="loading-card">
-      <svg class="loading-flower" aria-hidden="true"><use href="#daisy"/></svg>
-      <h1 id="loading-title" class="loading-title">正在准备你的小册</h1>
-      <p id="loading-message" class="loading-message" role="status">让每一页，都准备好再与你见面。</p>
-      <progress id="loading-progress" class="loading-progress" max="100" value="0" aria-label="小册加载进度"></progress>
-      <span id="loading-count" class="loading-count" aria-hidden="true">0%</span>
-      <button id="loading-retry" class="loading-retry" type="button" hidden>重新加载</button>
-      <noscript><p class="loading-message">请开启浏览器的 JavaScript 后重新打开小册。</p></noscript>
-    </div>
-  </section>
-  <main id="app" class="notebook" hidden inert></main>
+  <main id="app" class="notebook"></main>
   <dialog id="gate" class="paper-dialog" aria-labelledby="gate-title"></dialog>
   <dialog id="about" class="paper-dialog about-dialog" aria-labelledby="about-title"></dialog>
   <dialog id="share" class="paper-dialog share-dialog" aria-labelledby="share-title"></dialog>
   <dialog id="confirm" class="paper-dialog" aria-labelledby="confirm-title"></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <script src="./boot.js" defer onerror="document.getElementById('loading-message').textContent='加载暂时中断，请检查网络后重试。';var retry=document.getElementById('loading-retry');retry.hidden=false;retry.onclick=function(){location.reload()}"></script>
+  <script type="module" src="./app.js"></script>
 </body>
 </html>

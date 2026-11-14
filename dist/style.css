@@ -6,31 +6,3 @@
 @media(min-width:700px){body{background-image:radial-gradient(ellipse at 15% 24%,#dce6c960,transparent 45%),radial-gradient(ellipse at 90% 70%,#f3cbbf50,transparent 45%);padding:28px 0}.notebook{min-height:calc(100svh - 56px);background:#fcf7ed;border:1px solid #e1d5c3;border-radius:25px 29px 23px 27px;padding:25px 31px 30px;box-shadow:7px 9px 0 #d6c9b52e}.notebook:after{content:'';position:absolute;top:8px;left:8px;bottom:8px;border-left:1px dashed #ddcfbb;pointer-events:none}.cover-scene{height:280px}.question-paper{min-height:195px}.question-bottom{margin-bottom:8px}}
 @media(max-width:360px){.notebook{padding:14px 19px 24px}.topbar{margin-bottom:13px}.home-heading{font-size:31px}.cover-scene{height:239px;margin-top:15px}.cover-main{width:190px;top:12px}.cover-left,.cover-right{width:103px}.cover-meta{margin-bottom:17px}.question-title{font-size:23px}.question-paper{padding:21px;min-height:178px;margin-bottom:19px}.answers{gap:9px}.answer{min-height:51px}.question-nav{margin-top:20px}.card-animal-wrap{height:168px;width:180px}.card-animal-wrap .animal{width:175px}.result-title{font-size:31px}.result-line{font-size:18px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
-
-/* Answering uses a 400 × 688 (2:3.44) canvas, fitted to the safe viewport. */
-body.quiz-active{display:grid;place-items:center;min-height:100svh;min-height:100dvh;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
-.notebook.quiz-notebook{container-type:inline-size;width:min(480px,calc(100vw - env(safe-area-inset-left) - env(safe-area-inset-right)),calc((100svh - env(safe-area-inset-top) - env(safe-area-inset-bottom)) / 1.72));width:min(480px,calc(100vw - env(safe-area-inset-left) - env(safe-area-inset-right)),calc((100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom)) / 1.72));max-width:none;min-height:0;aspect-ratio:2 / 3.44;margin:0 auto;padding:0;border:0}
-.quiz-notebook .question-screen{height:100%;min-height:0;display:flex;flex-direction:column;padding:4cqw 5.5cqw 3.5cqw}
-.quiz-notebook .topbar{flex:none;min-height:11cqw;height:11cqw;margin:0 0 2.5cqw}
-.quiz-notebook .wordmark{font-size:4.75cqw;min-height:11cqw;gap:1.25cqw}
-.quiz-notebook .wordmark .flower{width:6cqw;height:7.5cqw}
-.quiz-notebook .counter strong{font-size:6.5cqw}.quiz-notebook .counter span{font-size:3.5cqw}
-.quiz-notebook .progress-track{flex:none;height:1.5cqw;margin:0 0 6cqw}
-.quiz-notebook .question-paper{flex:none;min-height:0;height:46cqw;padding:4.5cqw 5.5cqw;margin:0 0 4cqw}
-.quiz-notebook .question-period{font-size:3.5cqw;line-height:1.5;margin-bottom:2.5cqw}
-.quiz-notebook .question-title{font-size:6cqw;line-height:1.4;padding-bottom:0;overflow-wrap:anywhere}
-.quiz-notebook .question-paper .animal{width:16.5cqw;right:2.75cqw;top:-8.5cqw}
-.quiz-notebook .answers{flex:none;gap:2cqw}
-.quiz-notebook .answer{height:12.5cqw;min-height:0;padding:2cqw 4.75cqw}
-.quiz-notebook .answer-text{font-size:4cqw;line-height:1.5;letter-spacing:.125cqw}
-.quiz-notebook .radio-drawn{width:5cqw;height:5cqw;margin-right:3cqw}
-.quiz-notebook .answer.is-selected .radio-drawn:after{width:2.75cqw;height:2.75cqw}
-.quiz-notebook .question-nav{flex:none;gap:3cqw;margin-top:3.5cqw}
-.quiz-notebook .question-nav .primary{font-size:5cqw;line-height:1.5;height:12.5cqw;min-height:0;padding:2cqw 4cqw;gap:3.75cqw}
-.quiz-notebook .back-question{min-width:14.5cqw;min-height:0;height:12.5cqw}
-.quiz-notebook svg.icon{width:5.5cqw;height:5.5cqw}
-.quiz-notebook .question-bottom{font-size:3cqw;line-height:1.5;letter-spacing:.25cqw;margin:2.5cqw 0 0}
-.question-tools{display:flex;align-items:center;gap:2cqw}
-.sound-button{display:grid;place-items:center;width:10cqw;height:11cqw;padding:2cqw;border:0;background:transparent;border-radius:12px;color:var(--muted)}
-.sound-button svg{width:5cqw;height:5cqw;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.sound-button .sound-cross{display:none}.sound-button[aria-pressed=false] .sound-waves{display:none}.sound-button[aria-pressed=false] .sound-cross{display:block}
