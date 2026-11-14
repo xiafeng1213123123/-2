@@ -1,0 +1,10 @@
+Selection click sound
+Source: Kenney, Interface Sounds (1.0), Audio/click_001.ogg
+https://kenney.nl/assets/interface-sounds
+License: Creative Commons Zero (CC0) 1.0 Universal
+https://creativecommons.org/publicdomain/zero/1.0/
+
+selection-click.wav is a mono WAV conversion with a 3000 Hz low-pass filter.
+Playback gain is reduced in sound.js. The original recording is by Kenney.
+CC0 permits commercial use and modification without attribution.
+No background music is included.
