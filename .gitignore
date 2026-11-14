@@ -1,0 +1,6 @@
+node_modules/
+__pycache__/
+*.pyc
+*.zip
+owner.html
+*仅本地使用.html
